@@ -19,7 +19,6 @@ public interface LocaleInputCodeRepo extends JpaRepository<LocaleInputCode, Loca
 
 	List<LocaleInputCode> findById_LocaleCodeNoIn(List<Integer> localeCodeNos); //	tim danh sach LocaleInputCode boi nhieu localeCodes
 
-
 //	List<LocaleInputCode> findById_LocaleCodeAndId_LangCode(Integer localeCode,String langCode); //	tim danh sach LocaleInputCode boi 1 localeCode & 1 langCode
 	
 }

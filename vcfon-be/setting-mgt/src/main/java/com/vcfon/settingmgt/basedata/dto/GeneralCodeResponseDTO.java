@@ -16,18 +16,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class GeneralCodeResponseDTO {
-	private int commonCodeNo;
-	private int generalCodeNo;
+	private Integer commonCodeNo;
+	private Integer generalCodeNo;
 	private String featureCodeNo;
 	private BaseCodeTypeEnums codeType;
 	private BaseUseStatusEnums useStatus;
-	private int localeCodeNo;
+	private Integer localeCodeNo;
 	private boolean isTree;
-	private int treeHierLevel;
+	private Integer treeHierLevel;
 	private List<LocaleInputCodeDTO> localeInputCodes;
 	private List<GeneralCodeResponseDTO> children;
 	
-	public GeneralCodeResponseDTO(int commonCodeNo, int generalCodeNo, String featureCodeNo, String codeTypeNo,String useStatusNo,int localeCodeNo,boolean isTree) {
+	public GeneralCodeResponseDTO(Integer commonCodeNo, Integer generalCodeNo, String featureCodeNo, String codeTypeNo,String useStatusNo,Integer localeCodeNo,boolean isTree) {
 		super();
 		this.commonCodeNo = commonCodeNo;
 		this.generalCodeNo = generalCodeNo;
@@ -37,7 +37,7 @@ public class GeneralCodeResponseDTO {
 		this.localeCodeNo = localeCodeNo;
 		this.isTree = isTree;
 	}
-	public GeneralCodeResponseDTO(int commonCodeNo, int generalCodeNo, String featureCodeNo) {
+	public GeneralCodeResponseDTO(Integer commonCodeNo, Integer generalCodeNo, String featureCodeNo) {
 		super();
 		this.commonCodeNo = commonCodeNo;
 		this.generalCodeNo = generalCodeNo;

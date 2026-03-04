@@ -39,11 +39,11 @@ public class CommonCodeController {
 	private final CommonCodeService commonCodeService;
 	
 	@PostMapping("/create")
-	public ResponseEntity<ApiResponse<Boolean>> createCommonCode(@RequestBody CommonCodeRequestDTO reqParams) throws Exception{
-		if(SystemUtils.isEmptyData(reqParams))
+	public ResponseEntity<ApiResponse<Boolean>> createCommonCode(@RequestBody CommonCodeRequestDTO requestBody) throws Exception{
+		if(SystemUtils.isEmptyData(requestBody) || SystemUtils.isEmptyData(requestBody.getCommonCodeNo()))
 			throw new BadRequestException("Params is invalid");
 		
-		var result = commonCodeService.createCommonCode(reqParams);
+		var result = commonCodeService.createCommonCode(requestBody);
 		ResponseEntity<ApiResponse<Boolean>> dataResponse =  ApiUtils.buildApiResponse(result, HttpStatus.CREATED, "Create common code successfully");
 		log.info("[COMMON-CODE-CONTROLLER] - createCommonCode :: {} !",dataResponse.getBody().message());
 		return dataResponse;
@@ -62,13 +62,14 @@ public class CommonCodeController {
 	
 	@GetMapping("/detail/{commonCodeNo}")
 	public ResponseEntity<ApiResponse<CommonCodeResponseDTO>> searchCommonCode(@PathVariable Integer commonCodeNo){
-		CommonCodeResponseDTO result = CommonCodeResponseDTO.builder()
-				.commonCodeNo(commonCodeNo)
-				.featureCodeNo("IN")
-				.codeType(BaseCodeTypeEnums.MULTI)
-				.build();
-		if(SystemUtils.isEmptyData(result))
-			throw new NotFoundException("No data");
+//		CommonCodeResponseDTO result = CommonCodeResponseDTO.builder()
+//				.commonCodeNo(commonCodeNo)
+//				.featureCodeNo("IN")
+//				.codeType(BaseCodeTypeEnums.MULTI)
+//				.build();
+		if(SystemUtils.isEmptyData(commonCodeNo))
+			throw new BadRequestException("No data");
+		CommonCodeResponseDTO result = commonCodeService.getCommonCodeDetails(commonCodeNo);
 		
 		ResponseEntity<ApiResponse<CommonCodeResponseDTO>> dataResponse = ApiUtils.buildApiResponse(result, HttpStatus.OK, "Get list general code successfully !");
 		log.info("[COMMON-CODE-CONTROLLER] - createCommonCode :: {} !",dataResponse.getBody().message());

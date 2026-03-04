@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.vcfon.common.enums.BaseCodeTypeEnums;
 import com.vcfon.common.enums.BaseUseStatusEnums;
 import com.vcfon.common.exception.BadRequestException;
+import com.vcfon.common.exception.NotFoundException;
 import com.vcfon.settingmgt.basedata.dto.CommonCodeRequestDTO;
 import com.vcfon.settingmgt.basedata.dto.CommonCodeResponseDTO;
 import com.vcfon.settingmgt.basedata.entity.CommonCode;
@@ -87,6 +88,23 @@ public class CommonCodeServiceImpl implements CommonCodeService{
 					.build();
 				}
 		).toList();
+	}
+
+	@Override
+	public CommonCodeResponseDTO getCommonCodeDetails(Integer commonCode) {
+		CommonCode result = commonCodeRepo.findById(commonCode)
+				.orElseThrow(()-> new NotFoundException("Common Code not found"));
+		
+		List<LocaleInputCodeDTO> listLocaleInputCodesDTO = localeInputCodeService.findByLocaleCode(result.getLocaleCodeNo())
+				.stream().map(localeInputCodeService::buildDTOFromEntity).toList();
+		
+		return CommonCodeResponseDTO.builder()
+				.commonCodeNo(result.getCommonCodeNo())
+				.featureCodeNo(result.getFeatureCodeNo())
+				.codeType(BaseCodeTypeEnums.buildFromCodeTypeNo(result.getCodeTypeNo()))
+				.useStatus(BaseUseStatusEnums.buildFromStatusNo(result.getUseStatusNo()))
+				.localeInputCodes(listLocaleInputCodesDTO)
+				.build();
 	}
 
 }

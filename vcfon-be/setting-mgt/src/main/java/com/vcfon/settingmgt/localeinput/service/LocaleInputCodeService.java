@@ -12,5 +12,5 @@ public interface LocaleInputCodeService extends CustomDataConverter<LocaleInputC
 	boolean saveListLocaleInputCode(List<LocaleInputCode> entities);
 	boolean deleteByIds(List<LocaleInputCodePK> ids);
 	Integer findMaxLocaleCode();
-	
+	List<LocaleInputCode> findByLocaleCode(Integer localeCode);
 }

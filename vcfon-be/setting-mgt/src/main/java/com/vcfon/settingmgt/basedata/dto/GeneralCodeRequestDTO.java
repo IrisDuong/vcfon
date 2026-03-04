@@ -15,18 +15,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class GeneralCodeRequestDTO extends BaseRequest {
-	private int generalCodeNo;
-	private int commonCodeNo;
+	private Integer generalCodeNo;
+	private Integer commonCodeNo;
 	private String featureCodeNo;
 	private String codeTypeNo;
 	private String useStatusNo;
 	private boolean isTree;
-	private int treeHierLevel;
+	private Integer treeHierLevel;
 	private List<LocaleInputCodeDTO> localeInputCodes;
 	private List<GeneralCodeRequestDTO> children;
-	private int parentGeneralCodeNo;
+	private Integer parentGeneralCodeNo;
 	
-	public GeneralCodeRequestDTO(int commonCodeNo,int generalCodeNo, String featureCodeNo,boolean isTree) {
+	public GeneralCodeRequestDTO(Integer commonCodeNo,Integer generalCodeNo, String featureCodeNo,boolean isTree) {
 		super();
 		this.commonCodeNo = commonCodeNo;
 		this.generalCodeNo = generalCodeNo;
