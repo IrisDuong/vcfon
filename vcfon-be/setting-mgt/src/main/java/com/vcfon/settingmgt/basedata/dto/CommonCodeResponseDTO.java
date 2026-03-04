@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CommonCodeResponseDTO {
-	private int commonCodeNo;
+	private Integer commonCodeNo;
 	private String featureCodeNo;
 	private BaseCodeTypeEnums codeType;
 	private BaseUseStatusEnums useStatus;

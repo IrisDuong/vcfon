@@ -68,4 +68,9 @@ public class LocaleInputCodeServiceImpl implements LocaleInputCodeService{
 				.build();
 	}
 
+	@Override
+	public List<LocaleInputCode> findByLocaleCode(Integer localeCode) {
+		return localeInputCodeRepo.findById_LocaleCodeNo(localeCode);
+	}
+
 }

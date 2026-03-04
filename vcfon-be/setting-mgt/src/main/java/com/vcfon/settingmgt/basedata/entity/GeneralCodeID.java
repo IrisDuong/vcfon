@@ -21,10 +21,10 @@ public class GeneralCodeID implements Serializable{
 
 	
 	@Column(name = "general_code_no")
-	private int generalCodeNo;
+	private Integer generalCodeNo;
 	
 	@Column(name = "common_code_no")
-	private int commonCodeNo;
+	private Integer commonCodeNo;
 	
 	@Override
 	public boolean equals(Object obj) {

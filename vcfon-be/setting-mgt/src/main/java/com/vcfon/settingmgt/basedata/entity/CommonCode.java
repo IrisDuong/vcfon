@@ -27,7 +27,7 @@ public class CommonCode extends BaseDataCode implements Persistable<Integer> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "common_code_no")
-	private int commonCodeNo;
+	private Integer commonCodeNo;
 	
 	
 	@OneToMany(mappedBy = "ownerCommonCode", fetch = FetchType.LAZY, orphanRemoval = true)

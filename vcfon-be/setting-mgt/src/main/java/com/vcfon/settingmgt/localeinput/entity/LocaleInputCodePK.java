@@ -24,7 +24,7 @@ public class LocaleInputCodePK implements Serializable{
 	private String langCode;
 
 	@Column(name = "locale_code_no")
-	private int localeCodeNo;
+	private Integer localeCodeNo;
 
 	@Override
 	public boolean equals(Object obj) {

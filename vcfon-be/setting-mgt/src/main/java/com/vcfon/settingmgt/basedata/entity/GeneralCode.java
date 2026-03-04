@@ -51,7 +51,7 @@ public class GeneralCode extends BaseDataCode implements Persistable<GeneralCode
 
 	
 	@Column(name = "tree_level")
-	private int treeLevel;
+	private Integer treeLevel;
 	
 	@Transient
 	private boolean isNew = true;

@@ -10,4 +10,5 @@ public interface CommonCodeService {
 
 	boolean createCommonCode(CommonCodeRequestDTO param) throws Exception;
 	List<CommonCodeResponseDTO> searchCommonCodes(CommonCodeRequestDTO param);
+	CommonCodeResponseDTO getCommonCodeDetails(Integer commonCode);
 }
