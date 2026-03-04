@@ -1,0 +1,24 @@
+# eclipse workspace
+.metadata/
+.recommenders/
+.settings/
+
+# sonarqube
+.sonarlint/
+
+# logs
+.log
+
+# unnessessary backup files
+*.bak
+git-guideline.png
+
+*.key
+# Maven
+**/bin/
+/target/
+**/target/
+.project
+.classpath
+.settings/
+.factorypath
